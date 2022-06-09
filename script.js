@@ -1,12 +1,13 @@
 class App {
   buttons = document.querySelectorAll(".btnCont");
   container = document.querySelector(".container");
+  btnStart = document.querySelector(".start");
   curSymbol = "x";
   board = new Array(9).fill("");
   winner = undefined;
   stopGame = false;
   constructor() {
-    this.init();
+    this.btnStart.addEventListener("click", this.init.bind(this));
   }
   init() {
     this.container.addEventListener("click", (e) => {
