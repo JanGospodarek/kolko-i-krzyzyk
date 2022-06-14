@@ -2,24 +2,26 @@ class App {
   buttons = document.querySelectorAll(".btnCont");
   container = document.querySelector(".container");
   btnStart = document.querySelector(".start");
+  btnReset = document.querySelector(".reset");
   curSymbol = "x";
   board = new Array(9).fill("");
   winner = undefined;
   stopGame = false;
   constructor() {
     this.btnStart.addEventListener("click", this.init.bind(this));
+    this.btnReset.addEventListener("click", this.reset.bind(this));
   }
   init() {
     this.container.addEventListener("click", (e) => {
-      console.log(this.stopGame);
-
       if (this.stopGame) return;
-      const btn = e.target;
+      const btn = e.target.closest(".btnCont");
+      console.log(btn);
       if (!btn) return;
       this.writeMove(btn);
       this.sprawdzenie();
       this.isWin();
       this.changeSymbol();
+      console.log(this.buttons, this.board);
     });
   }
   sprawdzenie() {
@@ -59,6 +61,14 @@ class App {
       alert(`Wygrywa ${this.winner}`);
       this.stopGame = true;
     }
+  }
+  reset() {
+    //     this.board.fill("");
+    //     this.buttons.forEach((btn) => {
+    //       btn.innerHTML = " ";
+    //     });
+    //     this.init();
+    window.location.reload();
   }
 }
 const app = new App();
