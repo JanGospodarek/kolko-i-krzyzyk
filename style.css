@@ -8,8 +8,8 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 5px;
-  width: 500px;
-  height: 500px;
+  width: 350px;
+  height: 350px;
   background-color: lightgray;
 }
 .container button {
@@ -28,4 +28,11 @@ body {
   border-radius: 10px;
   background-color: lightgray;
   cursor: pointer;
+}
+.filter {
+  filter: blur(4px);
+}
+.start:hover,
+.reset:hover {
+  background-color: grey;
 }
